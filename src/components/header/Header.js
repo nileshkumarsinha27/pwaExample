@@ -10,10 +10,10 @@ import {
 } from '../../containers/movieReviews/MovieReviews.actions';
 
 const getObjectKeyValue = (key) =>
-  [...CONSTANTS.SIDE_NAV.NAV_DATA].find(
+  ([...CONSTANTS.SIDE_NAV.NAV_DATA].find(
     (navData) =>
       navData[CONSTANTS.SIDE_NAV.DATA_KEYS.PATH] === window.location.pathname
-  ) || {}[key];
+  ) || {})[key];
 
 const OBJECT_KEYS = {
   INPUT: {
