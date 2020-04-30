@@ -22,7 +22,9 @@ const App = () => (
       <Route
         exact
         path={URL_CONSTANTS.DEFAULT}
-        render={() => <Layout>{renderChildren(URL_CONSTANTS.DEFAULT)}</Layout>}
+        render={() => (
+          <Layout>{renderChildren(URL_CONSTANTS.MOVIE_REVIEWS)}</Layout>
+        )}
       />
       <Route
         path={URL_CONSTANTS.MOVIE_REVIEWS}
