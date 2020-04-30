@@ -11,6 +11,11 @@ const constants = {
         path: URL_CONSTANTS.MOVIE_REVIEWS,
         placeHolder: 'Search Reviews',
       },
+      {
+        title: '',
+        path: URL_CONSTANTS.DEFAULT,
+        placeHolder: 'Search Reviews',
+      },
     ],
     DATA_KEYS: {
       TITLE: 'title',
