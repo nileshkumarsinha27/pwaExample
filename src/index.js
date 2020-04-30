@@ -1,11 +1,31 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { Provider } from 'react-redux';
+import rootReducers from './rootReducer';
+import RootSaga from './rootSaga';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  rootReducers,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
+
+// eslint-disable-next-line func-names
+sagaMiddleware.run(function* () {
+  yield RootSaga();
+});
+
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>,
   document.getElementById('root')
 );
